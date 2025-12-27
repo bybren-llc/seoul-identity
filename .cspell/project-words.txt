@@ -1,0 +1,62 @@
+# Seoul Identity Custom Dictionary
+
+# Korean Terms
+Seoul
+Sung-ho
+soju
+ajumma
+banchan
+Myeongdong
+Itaewon
+Gangnam
+Namsan
+Jongno
+Bukhansan
+Hanok
+Hangang
+Gwanghwamun
+Gyeongbokgung
+Dongdaemun
+Hongdae
+Apgujeong
+
+# Character Names
+Jake
+Cooper
+Han
+Yoona
+Jin-soo
+Min-jung
+
+# Screenplay Terms
+slugline
+parenthetical
+intercut
+prelap
+POV
+CONT'D
+INT
+EXT
+CLOSEUP
+SMASH
+INTERCUT
+MONTAGE
+
+# Screenplay Extensions
+V.O.
+O.S.
+O.C.
+
+# Technical Terms
+Midjourney
+harness
+codebase
+
+# Project-specific
+WTFB
+Agentic
+logline
+loglines
+speakability
+safehouse
+walkie

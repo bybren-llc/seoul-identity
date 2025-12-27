@@ -109,6 +109,18 @@ Full syntax reference: `.claude/skills/fountain-syntax/SKILL.md`
 ## Repository Structure
 
 ```
+src/                           Screenplay source files
+├── seoul-identity.fountain    Main screenplay
+
+source-materials/              Original source documents
+├── SEOUL_IDENTITY_v3.pdf
+└── SEOUL_IDENTITY_v3.docx
+
+exports/                       Generated outputs
+├── pdf/
+├── fdx/
+└── html/
+
 .claude/
 ├── agents/        11 agent profiles
 ├── commands/      16+ slash commands
@@ -116,10 +128,25 @@ Full syntax reference: `.claude/skills/fountain-syntax/SKILL.md`
 ├── hooks/         Workflow hooks
 └── hooks-config.json
 
+scripts/           Validation scripts
 patterns/          Scene and story patterns
 templates/         Screenplay templates
 docs/              Documentation
+
+.cspell/           Spell check configuration
 ```
+
+## Validation
+
+Run validation before commits:
+```bash
+npm run validate        # Full validation (fountain + md + spell)
+npm run lint:fountain   # Fountain syntax only
+npm run lint:md         # Markdown lint only
+npm run lint:spell      # Spell check only
+```
+
+Pre-commit hooks run automatically on staged files.
 
 ## Git Workflow
 
