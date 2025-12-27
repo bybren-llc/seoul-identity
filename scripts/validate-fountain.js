@@ -12,18 +12,13 @@ const path = require('path');
 const { Fountain } = require('fountain-js');
 
 const fountain = new Fountain();
-const srcDir = path.join(__dirname, '..', 'src');
+const rootDir = path.join(__dirname, '..');
 
-// Check if src directory exists
-if (!fs.existsSync(srcDir)) {
-  console.error('Error: src/ directory not found');
-  process.exit(1);
-}
-
-const files = fs.readdirSync(srcDir).filter(f => f.endsWith('.fountain'));
+// Find .fountain files in root directory
+const files = fs.readdirSync(rootDir).filter(f => f.endsWith('.fountain'));
 
 if (files.length === 0) {
-  console.log('No .fountain files found in src/');
+  console.log('No .fountain files found in project root');
   process.exit(0);
 }
 
@@ -34,7 +29,7 @@ let totalWarnings = 0;
 console.log('\n=== Fountain Validation ===\n');
 
 files.forEach(file => {
-  const filePath = path.join(srcDir, file);
+  const filePath = path.join(rootDir, file);
   const content = fs.readFileSync(filePath, 'utf8');
 
   try {
