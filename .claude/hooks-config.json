@@ -1,0 +1,89 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "BRANCH=$(git branch --show-current 2>/dev/null); if [ \"$BRANCH\" = 'main' ]; then echo '⚠️ REMINDER: Create a feature branch for major screenplay changes.'; fi",
+            "description": "Remind to use feature branches for major work"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write.*\\.fountain",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '📝 REMINDER: Writing to Fountain file. Ensure proper formatting:\\n  - Scene headings: INT./EXT. LOCATION - TIME\\n  - Character names: UPPERCASE\\n  - Blank line before character names'",
+            "description": "Fountain format reminder before writing"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash.*git\\s+commit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '📝 REMINDER: Commit message format: type(scope): description\\n  Types: scene, dialogue, action, structure, revision, notes, format'",
+            "description": "Remind about commit message format"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash.*git\\s+push",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "BRANCH=$(git branch --show-current); if [ \"$BRANCH\" = 'main' ]; then echo '❌ BLOCKER: Cannot push directly to main. Create a feature branch first.'; exit 1; fi",
+            "description": "Block direct push to main"
+          },
+          {
+            "type": "command",
+            "command": "if git status --porcelain | grep -q .; then echo '❌ BLOCKER: Uncommitted changes detected. Commit changes before pushing.'; exit 1; fi",
+            "description": "Block push with uncommitted changes"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write.*\\.fountain|Edit.*\\.fountain",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '✨ Fountain file updated. Consider running /check-format to validate.'",
+            "description": "Remind to validate after Fountain edits"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '🎬 Screenwriting Session Started\\n\\n📖 Workflow Commands:\\n  /start-scene    - Begin scene work\\n  /end-session    - Complete session\\n  /check-format   - Validate Fountain\\n  /check-continuity - Check consistency\\n\\n✍️ Writing Commands:\\n  /new-scene      - Add scene heading\\n  /new-character  - Add character\\n  /format-dialogue - Format dialogue\\n\\n📊 Analysis Commands:\\n  /page-count     - Page estimate\\n  /scene-list     - List all scenes\\n  /analyze-structure - Structure analysis\\n\\n📤 Export Commands:\\n  /export-pdf     - Generate PDF\\n  /export-all     - All formats'",
+            "description": "Session start with available commands"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git status --porcelain 2>/dev/null | grep -q . && echo '⚠️ Session ending with uncommitted changes. Use /end-session to complete cleanly.' || echo '✅ Clean session end - no uncommitted changes'",
+            "description": "Check for uncommitted work at session end"
+          }
+        ]
+      }
+    ]
+  }
+}
