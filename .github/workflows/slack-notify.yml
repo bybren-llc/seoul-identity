@@ -1,0 +1,52 @@
+name: Slack Notifications
+
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    # Only run if SLACK_WEBHOOK_URL secret is configured
+    if: ${{ secrets.SLACK_WEBHOOK_URL != '' }}
+
+    steps:
+      - name: Notify Slack on PR Opened
+        if: github.event.action == 'opened'
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "New PR opened in ${{ github.repository }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*New Pull Request* :memo:\n*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>*\nby ${{ github.event.pull_request.user.login }} in `${{ github.repository }}`"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Notify Slack on PR Merged
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "PR merged in ${{ github.repository }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*PR Merged* :white_check_mark:\n*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>*\nby ${{ github.event.pull_request.user.login }} into `${{ github.base_ref }}`"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
