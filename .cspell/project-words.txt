@@ -27,6 +27,8 @@ Han
 Yoona
 Jin-soo
 Min-jung
+Choi
+Kim
 
 # Screenplay Terms
 slugline
