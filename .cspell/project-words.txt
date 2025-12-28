@@ -60,3 +60,5 @@ loglines
 speakability
 safehouse
 walkie
+Songbird
+shortwave
