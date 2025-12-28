@@ -29,6 +29,7 @@ Jin-soo
 Min-jung
 Choi
 Kim
+Pyongyang
 
 # Screenplay Terms
 slugline
