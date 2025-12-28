@@ -1,0 +1,108 @@
+name: Validate Screenplay Workspace
+
+on:
+  push:
+    branches: [main, 'draft/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate Screenplay
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Fountain syntax
+        run: npm run lint:fountain
+
+      - name: Lint Markdown
+        run: npm run lint:md
+
+      - name: Spell check
+        run: npm run lint:spell
+
+  structure:
+    name: Validate Workspace Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking workspace structure..."
+
+          # Required files
+          REQUIRED_FILES=(
+            "CLAUDE.md"
+            "package.json"
+            "cspell.json"
+          )
+
+          # Required directories
+          REQUIRED_DIRS=(
+            "source-materials"
+            "exports"
+            "templates"
+            "scripts"
+          )
+
+          MISSING=0
+
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Missing required file: $file"
+              MISSING=1
+            else
+              echo "Found: $file"
+            fi
+          done
+
+          for dir in "${REQUIRED_DIRS[@]}"; do
+            if [ ! -d "$dir" ]; then
+              echo "Missing required directory: $dir"
+              MISSING=1
+            else
+              echo "Found: $dir/"
+            fi
+          done
+
+          # Check for at least one .fountain file
+          if ! ls *.fountain 1> /dev/null 2>&1; then
+            echo "Missing: No .fountain screenplay file found at project root"
+            MISSING=1
+          else
+            echo "Found: $(ls *.fountain)"
+          fi
+
+          if [ $MISSING -eq 1 ]; then
+            echo ""
+            echo "Workspace structure validation failed!"
+            exit 1
+          fi
+
+          echo ""
+          echo "Workspace structure is valid!"
+
+      - name: Check screenplay has title page
+        run: |
+          FOUNTAIN_FILE=$(ls *.fountain | head -1)
+          if ! grep -q "^Title:" "$FOUNTAIN_FILE"; then
+            echo "Warning: Screenplay missing Title in title page"
+          else
+            TITLE=$(grep "^Title:" "$FOUNTAIN_FILE" | head -1)
+            echo "Found: $TITLE"
+          fi
