@@ -1,0 +1,21 @@
+config:
+  default: true
+  MD013: false          # Line length - disable for prose
+  MD022: false          # Blank lines around headings
+  MD024:
+    siblings_only: true # Allow same headings in different sections
+  MD029: false          # Ordered list prefix style
+  MD031: false          # Blank lines around fences
+  MD032: false          # Blank lines around lists
+  MD033: false          # Allow inline HTML
+  MD037: false          # Spaces in emphasis
+  MD040: false          # Fenced code language - too strict for examples
+  MD041: false          # First line heading
+  MD049: false          # Emphasis style
+  MD056: false          # Table column count
+  MD058: false          # Blank lines around tables
+
+ignores:
+  - node_modules/**
+  - exports/**
+  - source-materials/**

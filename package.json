@@ -1,0 +1,31 @@
+{
+  "name": "seoul-identity-screenplay",
+  "version": "1.0.0",
+  "description": "Seoul Identity screenplay project - Fountain format with multi-agent harness",
+  "private": true,
+  "scripts": {
+    "lint": "npm run lint:md && npm run lint:spell",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules'",
+    "lint:spell": "cspell '**/*.{md,fountain}' --no-progress",
+    "lint:fountain": "node scripts/validate-fountain.js",
+    "validate": "npm run lint:fountain && npm run lint:md && npm run lint:spell",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "cspell": "^8.0.0",
+    "fountain-js": "^1.2.4",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "markdownlint-cli2": "^0.15.0"
+  },
+  "lint-staged": {
+    "*.md": [
+      "markdownlint-cli2 --fix",
+      "cspell --no-must-find-files"
+    ],
+    "*.fountain": [
+      "node scripts/validate-fountain.js",
+      "cspell --no-must-find-files"
+    ]
+  }
+}
