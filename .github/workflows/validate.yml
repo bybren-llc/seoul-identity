@@ -7,6 +7,58 @@ on:
     branches: [main]
 
 jobs:
+  branch-naming:
+    name: Validate Branch Name
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Check branch naming convention
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          echo "Checking branch: $BRANCH"
+
+          # Valid branch patterns
+          VALID_PATTERNS=(
+            "^main$"
+            "^draft/v[0-9]+(-[a-z0-9-]+)?$"
+            "^scene/[a-z0-9-]+$"
+            "^revision/[a-z0-9-]+$"
+            "^character/[a-z0-9-]+$"
+            "^structure/[a-z0-9-]+$"
+            "^fix/[a-z0-9-]+$"
+            "^export/[a-z0-9-]+$"
+          )
+
+          VALID=0
+          for pattern in "${VALID_PATTERNS[@]}"; do
+            if [[ "$BRANCH" =~ $pattern ]]; then
+              VALID=1
+              echo "Branch matches pattern: $pattern"
+              break
+            fi
+          done
+
+          if [ $VALID -eq 0 ]; then
+            echo ""
+            echo "ERROR: Branch name '$BRANCH' does not follow naming convention."
+            echo ""
+            echo "Valid patterns:"
+            echo "  - main"
+            echo "  - draft/v{N} or draft/v{N}-{qualifier}"
+            echo "  - scene/{slug}"
+            echo "  - revision/{type}"
+            echo "  - character/{name}"
+            echo "  - structure/{change}"
+            echo "  - fix/{issue}"
+            echo "  - export/{format}"
+            echo ""
+            echo "See docs/WORKFLOW.md for details."
+            exit 1
+          fi
+
+          echo "Branch naming convention: PASSED"
+
   validate:
     name: Validate Screenplay
     runs-on: ubuntu-latest
