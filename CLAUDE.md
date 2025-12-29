@@ -150,18 +150,47 @@ Pre-commit hooks run automatically on staged files.
 
 ## Git Workflow
 
-### Branch Strategy
-- `main` - Stable drafts only
-- `draft/v1`, `draft/v2` - Major versions
-- `scene/[name]` - Scene-specific work
-- `revision/[type]` - Revision passes
+See `docs/WORKFLOW.md` for complete branching and workflow documentation.
+
+### Branch Taxonomy
+
+| Type | Pattern | Use Case |
+|------|---------|----------|
+| Protected | `main` | Production-ready drafts only |
+| Version | `draft/v{N}` | Major screenplay versions |
+| Scene | `scene/{slug}` | Single scene work |
+| Revision | `revision/{type}` | Full-script passes |
+| Character | `character/{name}` | Character-focused work |
+| Structure | `structure/{change}` | Reorganization |
+| Fix | `fix/{issue}` | Targeted fixes |
+| Export | `export/{format}` | Export preparation |
+
+### Branch Creation (Agents)
+
+When starting new work, create a branch and announce:
+
+```
+[Branch Created] scene/coffee-shop-confrontation
+  From: draft/v2
+  Purpose: Write the coffee shop confrontation scene
+  Target: draft/v2
+```
 
 ### Commit Format
+
 ```
 type(scope): description
 
-Types: scene, dialogue, action, structure, revision, notes, format
+Types: scene, dialogue, action, structure, revision, notes, format, docs, chore
 ```
+
+### Definition of Done
+
+All branches require:
+- `/check-format` passes
+- `/check-continuity` passes
+- Spell check passes
+- Self-review completed
 
 ## Skills (Auto-Loaded)
 
