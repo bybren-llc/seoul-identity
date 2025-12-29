@@ -19,6 +19,15 @@ Gyeongbokgung
 Dongdaemun
 Hongdae
 Apgujeong
+Yongsan
+Aigoo
+hyung
+tteokbokki
+Busan
+kimchi
+
+# Korean Organizations
+KCIA
 
 # Character Names
 Jake
