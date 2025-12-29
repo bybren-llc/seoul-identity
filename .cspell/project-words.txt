@@ -2,7 +2,9 @@
 
 # Korean Terms
 Seoul
+jeong
 Sung-ho
+Seong
 soju
 ajumma
 banchan
@@ -19,6 +21,15 @@ Gyeongbokgung
 Dongdaemun
 Hongdae
 Apgujeong
+Yongsan
+Aigoo
+hyung
+tteokbokki
+Busan
+kimchi
+
+# Korean Organizations
+KCIA
 
 # Character Names
 Jake
