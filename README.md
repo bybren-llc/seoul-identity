@@ -190,6 +190,36 @@ Coming soon
 
 ---
 
+## Contributing
+
+This project uses a **lightweight SAFe-style workflow** for both human collaborators and AI agents.
+
+### Branch Types
+
+| Type | Use Case |
+|------|----------|
+| `scene/{slug}` | Single scene work |
+| `revision/{type}` | Full-script passes |
+| `character/{name}` | Character-focused work |
+| `structure/{change}` | Reorganization |
+| `fix/{issue}` | Targeted fixes |
+
+### Quick Start
+
+```bash
+# Create a working branch
+git checkout -b scene/your-scene-name
+
+# Make changes, then commit
+git commit -m "scene(act1): add your scene description"
+
+# Create PR when ready
+```
+
+See `docs/WORKFLOW.md` for complete workflow documentation.
+
+---
+
 ## Copyright
 
 (c) 2025 Words To Film By. All rights reserved.
