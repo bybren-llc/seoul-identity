@@ -68,7 +68,7 @@ codebase
 
 # Project-specific
 WTFB
-electricneon
+Mainscreen
 Agentic
 logline
 loglines
