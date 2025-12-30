@@ -1,5 +1,9 @@
 # Seoul Identity (2025)
 
+<p align="center">
+  <img src="source-materials/Seoul_Identity_logo_electricneon.png" alt="Seoul Identity" width="600">
+</p>
+
 **Feature Film** | **Thriller, Spy, Drama** | **1h 40min**
 
 ---
