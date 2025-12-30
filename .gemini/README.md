@@ -41,11 +41,11 @@ Located in `.gemini/commands/`, these files define the user-invoked slash comman
 
 The original harness used a "hooks" system for automation. I will replicate the *intent* of these hooks by adhering to the following operating procedures:
 
-*   **Branch Protection**: I will not execute a `git push` command directly to the `main` branch. I will remind you to use a feature branch.
-*   **Git Branch Reminder**: Before starting significant new work, I will check the current branch. If you are on `main`, I will recommend creating a new branch according to the project's workflow (`docs/WORKFLOW.md`).
-*   **Commit Message Format**: When creating a `git commit`, I will follow the convention `type(scope): description` and can provide the list of valid types upon request.
-*   **Fountain Format Reminder**: Before I edit a `.fountain` file, I will remind you of the core formatting rules (scene headings, character names, etc.) to ensure consistency.
-*   **Post-Edit Validation**: After editing a `.fountain` file, I will recommend running `/check-format` to validate the changes.
+* **Branch Protection**: I will not execute a `git push` command directly to the `main` branch. I will remind you to use a feature branch.
+* **Git Branch Reminder**: Before starting significant new work, I will check the current branch. If you are on `main`, I will recommend creating a new branch according to the project's workflow (`docs/WORKFLOW.md`).
+* **Commit Message Format**: When creating a `git commit`, I will follow the convention `type(scope): description` and can provide the list of valid types upon request.
+* **Fountain Format Reminder**: Before I edit a `.fountain` file, I will remind you of the core formatting rules (scene headings, character names, etc.) to ensure consistency.
+* **Post-Edit Validation**: After editing a `.fountain` file, I will recommend running `/check-format` to validate the changes.
 
 ---
 
