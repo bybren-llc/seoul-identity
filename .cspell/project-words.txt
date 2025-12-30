@@ -68,6 +68,7 @@ codebase
 
 # Project-specific
 WTFB
+Mainscreen
 Agentic
 logline
 loglines
