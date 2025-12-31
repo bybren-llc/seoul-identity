@@ -1,19 +1,52 @@
 # Screenwriting Gemini Agent Harness
 
-This harness adapts the production-tested multi-agent workflow from the Claude Code Harness for use with the Gemini family of models. It provides a comprehensive framework for screenplay development using the Fountain format.
+This harness adapts the production-tested multi-agent workflow from the Claude Code Harness for use with Google's Gemini CLI. It provides a comprehensive framework for screenplay development using the Fountain format.
 
 ## How to Use This Harness
 
-This directory contains the context and instructions that I, your Gemini agent, will use to assist you in writing your screenplay. By defining a set of agents, skills, and commands, it allows you to interact with me in a structured and powerful way, similar to the original Claude harness.
+This directory contains the configuration and instructions for Gemini CLI to assist you in writing your screenplay. The harness uses **native Gemini CLI slash commands** (`.toml` files) for workflows, with agent profiles and skills loaded via the `GEMINI.md` context file.
 
-When you want me to perform a task, invoke one of the commands listed below (e.g., `/check-format`). I will use the corresponding file in `.gemini/commands/` to understand the workflow, the files in `.gemini/skills/` to access specialized knowledge, and the personas in `.gemini/agents/` to adopt the correct role for the task.
+### Invoking Commands
+
+Commands are native Gemini CLI slash commands. Type them directly:
+
+```
+/check-format
+/new-scene coffee shop morning
+/analyze-character Jake
+```
+
+### Using Agents
+
+Request a specific agent persona when you need specialized expertise:
+
+```
+Acting as the Story Architect, analyze the structure of Act Two.
+```
 
 ## Architecture
 
 The harness operates on a three-part model:
 
-### 1. Agents (Personas)
-Located in `.gemini/agents/`, these files define the 11 expert personas I can adopt to assist you. When you need a specific type of analysis or writing, you can invoke an agent by name (e.g., "Acting as the Story Architect, analyze the structure...").
+### 1. Commands (Slash Commands)
+
+Located in `.gemini/commands/` as **TOML files**. These are native Gemini CLI custom commands that execute specific workflows.
+
+**Format:**
+```toml
+description = "Brief description of the command"
+
+prompt = """
+Detailed instructions for Gemini to follow.
+Use {{args}} for user arguments.
+Use !{command} for shell execution.
+Reference skills with @path/to/skill.md
+"""
+```
+
+### 2. Agents (Personas)
+
+Located in `.gemini/agents/`, these markdown files define the 11 expert personas. They are imported into `GEMINI.md` using the `@file.md` syntax and loaded automatically as context.
 
 | Agent | Role |
 |-------|------|
@@ -29,23 +62,9 @@ Located in `.gemini/agents/`, these files define the 11 expert personas I can ad
 | **Production Coordinator** | Export, format conversion |
 | **Session Manager** | Workflow coordination, git integration |
 
-### 2. Skills (Knowledge Base)
-Located in `.gemini/skills/`, these files are my knowledge base for various screenwriting domains. I will automatically reference these documents when a task requires specialized knowledge (e.g., using the `fountain-syntax` skill when validating format).
+### 3. Skills (Knowledge Base)
 
-### 3. Commands (Workflows)
-Located in `.gemini/commands/`, these files define the user-invoked slash commands. They provide me with a clear, step-by-step workflow for executing common screenwriting tasks.
-
----
-
-## Agent Operating Procedures (Replacing Claude Hooks)
-
-The original harness used a "hooks" system for automation. I will replicate the *intent* of these hooks by adhering to the following operating procedures:
-
-* **Branch Protection**: I will not execute a `git push` command directly to the `main` branch. I will remind you to use a feature branch.
-* **Git Branch Reminder**: Before starting significant new work, I will check the current branch. If you are on `main`, I will recommend creating a new branch according to the project's workflow (`docs/WORKFLOW.md`).
-* **Commit Message Format**: When creating a `git commit`, I will follow the convention `type(scope): description` and can provide the list of valid types upon request.
-* **Fountain Format Reminder**: Before I edit a `.fountain` file, I will remind you of the core formatting rules (scene headings, character names, etc.) to ensure consistency.
-* **Post-Edit Validation**: After editing a `.fountain` file, I will recommend running `/check-format` to validate the changes.
+Located in `.gemini/skills/`, these markdown files contain specialized screenwriting knowledge. They are imported via `GEMINI.md` and referenced in command prompts.
 
 ---
 
@@ -53,9 +72,74 @@ The original harness used a "hooks" system for automation. I will replicate the 
 
 | Category | Commands |
 |----------|----------|
-| **Workflow** | `/start-scene`, `/end-session`, `/check-continuity`, `/check-format` |
+| **Workflow** | `/start-scene`, `/end-session`, `/check-continuity`, `/check-format`, `/new-branch` |
 | **Writing** | `/new-scene`, `/new-character`, `/format-dialogue`, `/add-transition`, `/add-note` |
 | **Analysis** | `/analyze-structure`, `/analyze-character`, `/page-count`, `/scene-list` |
 | **Export** | `/export-pdf`, `/export-fdx`, `/export-html`, `/export-all` |
 
-See the corresponding markdown file in the `.gemini/commands/` directory for details on how each command works.
+---
+
+## Operating Procedures
+
+These guidelines replace Claude's hook system:
+
+- **Branch Protection**: Do not execute `git push` directly to `main`
+- **Git Branch Reminder**: Before significant work, check branch and recommend creating one if on `main`
+- **Commit Message Format**: Use `type(scope): description` convention
+- **Fountain Format Reminder**: Validate format rules before editing `.fountain` files
+- **Post-Edit Validation**: Recommend `/check-format` after screenplay edits
+
+---
+
+## File Structure
+
+```
+.gemini/
+├── README.md              # This file
+├── SETUP.md               # Configuration guide
+├── TROUBLESHOOTING.md     # Problem-solving reference
+│
+├── agents/                # 11 agent profiles (.md)
+│   ├── story-analyst.md
+│   ├── story-architect.md
+│   ├── dialogue-writer.md
+│   └── ...
+│
+├── commands/              # 18 slash commands (.toml)
+│   ├── check-format.toml
+│   ├── new-scene.toml
+│   ├── export-pdf.toml
+│   └── ...
+│
+└── skills/                # 13 knowledge modules (.md)
+    ├── fountain-syntax/SKILL.md
+    ├── story-structure/SKILL.md
+    └── ...
+```
+
+---
+
+## Context Loading
+
+The `GEMINI.md` file at the project root imports all agents and skills using Gemini CLI's `@file.md` syntax:
+
+```markdown
+## Agent Profiles
+@.gemini/agents/story-analyst.md
+@.gemini/agents/dialogue-writer.md
+...
+
+## Skills
+@.gemini/skills/fountain-syntax/SKILL.md
+...
+```
+
+This ensures all context is loaded when Gemini CLI starts.
+
+---
+
+## Further Documentation
+
+- **SETUP.md** - Initial configuration and customization
+- **TROUBLESHOOTING.md** - Common issues and solutions
+- **docs/WORKFLOW.md** - Git branching and commit conventions

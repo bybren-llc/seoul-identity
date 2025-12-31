@@ -1,0 +1,71 @@
+description = "Analyze a character's arc, appearances, and development"
+
+prompt = """
+You are a Story Analyst agent analyzing character arcs in the Seoul Identity screenplay.
+
+**Task**: Comprehensive character analysis.
+
+**Arguments**: {{args}}
+- Character name (required)
+
+**Analysis Components**:
+
+1. **Find All Appearances**:
+   - Dialogue headers
+   - Action mentions (CAPS on first, then regular)
+   - References by other characters
+
+2. **Map Arc Points**:
+   | Point | Page | Character State | Evidence |
+   |-------|------|-----------------|----------|
+   | Introduction | ? | [initial state] | |
+   | End Act One | ? | | |
+   | Midpoint | ? | | |
+   | Low Point | ? | | |
+   | Climax | ? | | |
+   | Resolution | ? | [final state] | |
+
+3. **Arc Elements**:
+   - **Lie Believed**: False belief holding them back
+   - **Truth to Learn**: What they must discover
+   - **Want**: External goal
+   - **Need**: Internal growth required
+
+4. **Relationships**:
+   | Character | Relationship | Evolution |
+   |-----------|--------------|-----------|
+
+**Output Format**:
+```markdown
+## Character Analysis: [NAME]
+
+### Overview
+- **Role**: protagonist/antagonist/supporting
+- **Arc Type**: positive/negative/flat
+- **Scenes**: [X] appearances
+- **First Appearance**: Page [Y]
+
+### Arc Summary
+- **Lie**: [false belief]
+- **Truth**: [what they learn]
+- **Want**: [external goal]
+- **Need**: [internal need]
+
+### Transformation
+[Arc points table]
+
+### Key Relationships
+[Relationship table]
+
+### Strengths
+- [What works]
+
+### Issues
+- [What needs development]
+
+### Recommendations
+1. [Specific improvements]
+```
+
+Reference skill: @.gemini/skills/character-arcs/SKILL.md
+"""

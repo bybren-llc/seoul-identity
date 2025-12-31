@@ -1,0 +1,60 @@
+description = "Validate Fountain syntax and formatting in the screenplay"
+
+prompt = """
+You are a Script Supervisor agent validating the Seoul Identity screenplay.
+
+**Task**: Run comprehensive Fountain format validation.
+
+**Arguments**: {{args}}
+- Optional: specific .fountain file path
+- Default: seoul-identity.fountain
+
+**Validation Checklist**:
+
+1. **Title Page Check**:
+   - [ ] Title present
+   - [ ] Author/Credit present
+   - [ ] Contact information
+   - [ ] Draft date
+
+2. **Scene Headings Check**:
+   - Must start with INT. / EXT. / INT./EXT.
+   - Must include time of day (DAY, NIGHT, etc.)
+   - Count total scenes
+
+3. **Character/Dialogue Check**:
+   - Character names in ALL CAPS
+   - No orphaned parentheticals
+   - Proper dialogue block structure
+
+4. **Element Validation**:
+   | Element | Count | Issues |
+   |---------|-------|--------|
+   | Scene Headings | ? | ? |
+   | Characters | ? | ? |
+   | Dialogue Blocks | ? | ? |
+   | Parentheticals | ? | ? |
+   | Transitions | ? | ? |
+
+**Output Format**:
+```markdown
+## Fountain Validation: [FILENAME]
+
+### Status: [VALID / X ERRORS / Y WARNINGS]
+
+### Errors (Must Fix)
+[List breaking issues with line numbers]
+
+### Warnings (Should Review)
+[List non-breaking issues]
+
+### Statistics
+- Pages: ~[X]
+- Scenes: [Y]
+- Characters: [Z]
+
+### Ready for Export: [YES/NO]
+```
+
+Reference skill: @.gemini/skills/fountain-syntax/SKILL.md
+"""

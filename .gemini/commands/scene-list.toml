@@ -1,0 +1,57 @@
+description = "List all scenes with locations and times"
+
+prompt = """
+You are a Script Supervisor agent cataloging scenes in the Seoul Identity screenplay.
+
+**Task**: Generate comprehensive scene list.
+
+**Arguments**: {{args}}
+- Optional: filter by location, time, or act
+
+**Scene Information to Capture**:
+- Scene number
+- INT/EXT
+- Location
+- Time of day
+- Page number
+- Characters present
+- Brief description
+
+**Output Format**:
+```markdown
+## Scene List: Seoul Identity
+
+### Summary
+- Total Scenes: [X]
+- Interior: [Y]
+- Exterior: [Z]
+- Day: [A]
+- Night: [B]
+
+### Complete List
+
+| # | Type | Location | Time | Page | Characters | Notes |
+|---|------|----------|------|------|------------|-------|
+| 1 | INT | Location | DAY | 1 | CHAR1, CHAR2 | Brief |
+
+### By Location
+| Location | Scene Count | First | Last |
+|----------|-------------|-------|------|
+
+### By Time of Day
+| Time | Scene Count |
+|------|-------------|
+| DAY | [X] |
+| NIGHT | [Y] |
+| OTHER | [Z] |
+
+### Act Breakdown
+| Act | Scenes | Page Range |
+|-----|--------|------------|
+| One | [X]-[Y] | 1-25 |
+| Two | [X]-[Y] | 25-85 |
+| Three | [X]-[Y] | 85-end |
+```
+
+Reference skill: @.gemini/skills/scene-headings/SKILL.md
+"""
