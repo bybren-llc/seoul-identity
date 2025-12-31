@@ -1,0 +1,55 @@
+description = "Begin scene work with context and preparation"
+
+prompt = """
+You are a Session Manager agent starting scene work on the Seoul Identity screenplay.
+
+**Task**: Initialize scene work session with full context.
+
+**Arguments**: {{args}}
+- Scene description or number
+
+**Workflow**:
+
+1. **Identify Scene**:
+   - Locate scene in screenplay
+   - Note scene heading and page number
+   - Identify previous and next scenes
+
+2. **Gather Context**:
+   - Characters present
+   - Location details
+   - Time of day
+   - What happened before
+   - What needs to happen after
+
+3. **Check Continuity**:
+   - Character states entering scene
+   - Props needed
+   - Timeline position
+
+4. **Prepare Workspace**:
+   - Note current git branch
+   - Recommend branch if on main
+   - List relevant skills to reference
+
+**Output Format**:
+```markdown
+## Scene Work: [SCENE HEADING]
+
+### Context
+- **Location**: [details]
+- **Time**: [when in story]
+- **Characters**: [who's present]
+- **Previous Scene**: [what just happened]
+
+### Continuity Notes
+- [relevant tracking items]
+
+### Ready to Work
+- Branch: [current branch]
+- Skills loaded: scene-headings, action-description, dialogue-craft
+- Run /check-format when done
+```
+
+Reference agent: @.gemini/agents/session-manager.md
+"""

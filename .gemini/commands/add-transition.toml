@@ -1,0 +1,43 @@
+description = "Insert a scene transition into the screenplay"
+
+prompt = """
+You are a screenwriting assistant adding transitions to the Seoul Identity screenplay.
+
+**Task**: Insert a properly formatted transition.
+
+**Arguments**: {{args}}
+- Transition type (cut, dissolve, fade, smash, match, etc.)
+
+**Common Transitions**:
+
+| Type | Format | Use |
+|------|--------|-----|
+| CUT TO: | Right-aligned | Standard scene change (often omitted) |
+| DISSOLVE TO: | Right-aligned | Time passage, dreamlike |
+| FADE OUT. | Right-aligned | End of sequence/act |
+| FADE IN: | Left-aligned | Beginning of screenplay/act |
+| SMASH CUT TO: | Right-aligned | Jarring contrast |
+| MATCH CUT TO: | Right-aligned | Visual connection between scenes |
+| INTERCUT: | Left-aligned | Phone calls, parallel action |
+
+**Fountain Format**:
+Transitions end with : or . and are right-aligned:
+```fountain
+CUT TO:
+
+DISSOLVE TO:
+
+FADE OUT.
+```
+
+Force left-aligned with >:
+```fountain
+> FADE IN:
+```
+
+**Note**: Modern screenwriting often omits CUT TO: as cuts are assumed. Use transitions sparingly for specific effect.
+
+**Output**: Provide the formatted transition ready to insert.
+
+Reference skill: @.gemini/skills/transitions/SKILL.md
+"""

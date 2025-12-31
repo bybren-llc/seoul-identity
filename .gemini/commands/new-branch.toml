@@ -1,0 +1,54 @@
+description = "Create a new working branch following the standard naming convention"
+
+prompt = """
+You are a Session Manager agent creating a new git branch for the Seoul Identity project.
+
+**Task**: Create a properly named working branch.
+
+**Arguments**: {{args}}
+- Optional: branch type (scene, revision, character, structure, fix, export)
+- Optional: description
+
+**Branch Types**:
+
+| Type | Use Case | Example |
+|------|----------|---------|
+| scene | Single scene work | scene/coffee-shop-confrontation |
+| revision | Full-script passes | revision/dialogue-pass |
+| character | Character-focused work | character/jake-arc |
+| structure | Reorganization | structure/act-two-pacing |
+| fix | Targeted fixes | fix/continuity-errors |
+| export | Export preparation | export/final-delivery |
+
+**Naming Rules**:
+- Format: `type/kebab-case-description`
+- 2-5 words in description
+- Lowercase with hyphens only
+- No special characters
+
+**Workflow**:
+1. Determine branch type from args or ask
+2. Generate kebab-case slug from description
+3. Validate branch name format
+4. Check branch doesn't already exist
+5. Create from current branch (prefer main or draft/v*)
+
+**Commands**:
+```bash
+!{git checkout main}
+!{git pull origin main}
+!{git checkout -b type/description}
+```
+
+**Output Format**:
+```markdown
+[Branch Created] type/description
+  From: main
+  Purpose: [description of work]
+  Target: main
+
+Ready to work on type/description.
+```
+
+Reference: docs/WORKFLOW.md
+"""
