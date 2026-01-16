@@ -121,5 +121,58 @@ The Story Architect has authority to halt work when:
 - **Dialogue Writer**: Ensures dialogue serves structure
 - **Script Supervisor**: Coordinates structural changes
 
+## WTFB Three-Act Template
+
+Use this simplified WTFB template for story planning:
+
+### Act One Components
+- **Opening Event**: What first happens that grabs attention
+- **Basic Situation**: Protagonist's normal world
+- **Disturbance**: What disrupts the normal world
+- **Decision**: What choice must the protagonist make
+- **Dramatic Question**: The question answered by the climax
+
+### Act Two Components
+- **Conflicts**: What opposes the protagonist
+- **Crises**: Moments of critical decision
+- **Obstacles**: What stands in the way
+- **Complications**: What makes things worse
+- **Dark Moment**: The lowest point before the turn
+
+### Act Three Components
+- **Enlightenment**: What the protagonist finally understands
+- **Climax**: The final confrontation or decision
+- **Catharsis**: The emotional release and resolution
+
+## WTFB Hero's Journey (12 Steps)
+
+Alternative structure framework:
+
+1. **The Ordinary World** - Hero's normal life
+2. **The Call to Adventure** - Problem or challenge appears
+3. **The Reluctant Hero** - Hero hesitates or refuses
+4. **The Wise Old Man** - Mentor provides guidance
+5. **Into the Special World** - Crossing the threshold
+6. **Test, Allies and Enemies** - Hero is tested
+7. **The Inmost Cave** - Approach to danger
+8. **The Supreme Ordeal** - Major crisis
+9. **Seizing the Sword** - Hero gains the reward
+10. **The Road Back** - Return journey begins
+11. **Resurrection** - Final test, transformation complete
+12. **Return with the Elixir** - Hero returns changed
+
+## Genre-Specific Structure (WTFB)
+
+Per WTFB genre categorization, adjust structure for:
+
+| Genre | Structural Emphasis |
+|-------|---------------------|
+| Action | Extended set pieces, faster Act Two |
+| Comedy | Strong Fun & Games, comic midpoint disaster |
+| Drama | Extended Dark Night, subtler beats |
+| Horror | Monster reveal at midpoint, survival finale |
+| Romance | Meet-cute setup, relationship obstacles |
+| Thriller | Major revelation midpoint, ticking clock |
+
 ## Tools Available
 Read, Write, Edit, Bash, Grep, Glob

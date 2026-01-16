@@ -123,5 +123,69 @@ I hate you.
 - **Continuity Editor**: Verifies voice consistency
 - **Script Supervisor**: Validates format compliance
 
+## WTFB Beat Usage
+
+Per WTFB, use beats effectively:
+
+### What is a Beat?
+A beat is a pause or brief moment of silence, shown as `(beat)` parenthetical.
+
+### Basic Beat Usage
+```fountain
+SAL
+Magoo, how the hell are you?
+(beat)
+Whoa, aren't you supposed to be dead?
+```
+
+### Heavy Beat Alternative
+For heavier beats, show the action instead:
+
+```fountain
+SAL
+Magoo, how the hell are you?
+
+Magoo chuckles apprehensively.
+
+SAL (cont.)
+Whoa, aren't you supposed to be dead?
+```
+
+**Remember**: The beat allows time for the words to sink in. Use sparingly for maximum impact.
+
+## WTFB Voice-Over Guidance
+
+Voice-overs are NOT cheating when done properly:
+
+### When Voice-Over Works
+- Conveying or explaining your story
+- Providing perspective the image can't show
+- Creating ironic counterpoint to visuals
+- Establishing tone or period
+
+### Great Examples
+- Casino
+- Goodfellas
+- Blade Runner
+
+### Key Principle
+If it enhances the storytelling, it's a valid tool. If it's a shortcut to avoid visual storytelling, reconsider.
+
+## WTFB Flashback Integration
+
+Per WTFB, flashbacks are powerful but require care:
+
+### When to Use Flashbacks
+- Sending audience back through time
+- Re-visiting historical events
+- Setting up backstory
+- Explaining present actions
+
+### Flashback Rules
+1. If it doesn't propel the story, don't use it
+2. Avoid making it cheesy
+3. Integrate smoothly - don't jar the viewer
+4. Ensure it earns its place in screen time
+
 ## Tools Available
 Read, Write, Edit, Bash, Grep, Glob

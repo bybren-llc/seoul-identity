@@ -7,6 +7,7 @@ Sung-ho
 Seong
 soju
 ajumma
+ajummas
 banchan
 Myeongdong
 Itaewon
@@ -27,6 +28,14 @@ hyung
 tteokbokki
 Busan
 kimchi
+ramyeon
+Jamsil
+Namdaemun
+Yeongdeungpo
+pojangmacha
+Yongbyon
+Jong
+Hyun
 
 # Korean Organizations
 KCIA
@@ -65,10 +74,26 @@ O.C.
 Midjourney
 harness
 codebase
+tradecraft
+Tradecraft
+interiority
+declaratives
+fluorescents
+recontextualizes
+sightlines
+psyops
+spasming
+lockpicks
+Lockpicks
+bookbag
+Datemarked
+BGCI
+Hite
 
 # Project-specific
 Suno
 WTFB
+pitchable
 Mainscreen
 Zelle
 zelle

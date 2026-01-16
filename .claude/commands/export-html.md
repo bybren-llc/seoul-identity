@@ -1,3 +1,7 @@
+---
+description: Generate an HTML preview of the screenplay.
+---
+
 # /export-html
 
 Generate an HTML preview of the screenplay.
@@ -13,8 +17,27 @@ Generate an HTML preview of the screenplay.
 - Verify content is complete
 
 ### Step 2: Execute Export
-Using available tools:
+
+#### Recommended: VS Code + Better Fountain Extension
+
+The easiest method uses the [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain) extension:
+
+1. Open your `.fountain` file in VS Code
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+3. Type "Fountain: Export to HTML"
+4. Choose output location
+
+> **Extension Link**: [Better Fountain on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+
+#### Alternative: CLI Tools (for automation)
+
+For CI/CD pipelines or scripted exports:
+
 ```bash
+# First-time setup
+npm install -g afterwriting
+
+# Export
 afterwriting --source screenplay.fountain --html --output output.html
 ```
 

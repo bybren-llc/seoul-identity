@@ -1,133 +1,125 @@
-# Screenwriting Claude Code Harness
+# Claude Code Harness
 
-A production-tested multi-agent workflow system for screenplay development using Fountain format.
+This directory contains the multi-agent harness for Claude Code.
 
-## Quick Start
+## Structure
 
-```bash
-# Start a writing session
-/start-scene opening coffee shop
+```
+.claude/
+├── agents/          # 11 specialized agent profiles
+├── commands/        # Slash command definitions
+├── skills/          # Knowledge base modules (SKILL.md files)
+├── hooks/           # Hook configurations
+├── resources/       # Patterns and reference materials
+└── README.md
+```
 
-# Check your work
+## Agent Team
+
+The harness coordinates 11 specialized agents organized into four functional areas:
+
+### Story & Structure
+- **Story Analyst** - Break down concepts into scene-by-scene analysis
+- **Story Architect** - Define and validate narrative structure (stop-the-line authority)
+
+### Writing
+- **Dialogue Writer** - Create distinct character voices and subtext
+- **Scene Writer** - Handle visual storytelling and action description
+- **Scene Annotator** - Manage notes, synopses, and organization
+
+### Quality & Continuity
+- **Continuity Editor** - Track chronology and consistency
+- **Script Supervisor** - Verify format and syntax (quality gates)
+- **Standards Reviewer** - Ensure industry-standard compliance
+
+### Research & Production
+- **Research Specialist** - Handle accuracy and authenticity
+- **Production Coordinator** - Manage exports and delivery
+- **Session Manager** - Initialize sessions and coordinate tasks
+
+## Available Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/start-scene` | Begin new scene development |
+| `/check-format` | Validate Fountain syntax |
+| `/check-continuity` | Verify consistency |
+| `/analyze-structure` | Review narrative structure |
+| `/analyze-character` | Deep character analysis |
+| `/export-pdf` | Generate PDF output |
+| `/export-fdx` | Export to Final Draft format |
+| `/scene-list` | List all scenes |
+| `/page-count` | Calculate page estimation |
+| `/new-character` | Add a new character |
+| `/writers-room` | Collaborative brainstorming |
+| `/stuck` | Get help when blocked |
+
+## Skills Library
+
+Skills provide specialized knowledge modules:
+
+- **Fountain Syntax** - Format fundamentals
+- **Story Structure** - Narrative frameworks
+- **Dialogue Craft** - Voice and subtext techniques
+- **Scene Analysis** - Scene construction patterns
+- **Character Arcs** - Arc development
+- **Continuity Tracking** - Consistency verification
+
+## Capability Identification
+
+All capabilities in the harness use a canonical identifier (`wtfbId`) for registry and plugin compatibility:
+
+### Namespace Convention
+
+| Source | Namespace | Example |
+|--------|-----------|---------|
+| Template (this repo) | `wtfb:` | `wtfb:story-structure` |
+| Marketplace plugins | `{plugin}:` | `wtfb-screenwriting:advanced-structure` |
+
+### Requirement by Type
+
+| Capability | wtfbId Required? |
+|------------|------------------|
+| Skills | **REQUIRED** |
+| Commands | **RECOMMENDED** |
+| Hooks | **OPTIONAL** |
+| Agents | **OPTIONAL** |
+
+### Example Skill Frontmatter
+
+```yaml
+---
+name: story-structure
+wtfbId: wtfb:story-structure
+description: Three-act screenplay structure with beat placement.
+---
+```
+
+See [Capability Contract](../docs/guides/CAPABILITY_CONTRACT.md) for full specification.
+
+## Usage
+
+Commands are invoked using slash syntax:
+
+```
 /check-format
-/check-continuity
-
-# Track progress
-/page-count
-/scene-list
-
-# Export when ready
-/export-pdf
+/analyze-structure focus:acts
+/export-pdf watermark:"DRAFT"
 ```
 
-## Architecture
+Agents are invoked by role:
 
-The harness operates as a **three-layer stack**:
-
-### 1. Hooks (Automatic Guardrails)
-- Format reminders before Fountain edits
-- Commit message format enforcement
-- Branch protection for main
-- Session start/end notifications
-
-### 2. Commands (User-Invoked Workflows)
-16+ slash commands for common screenwriting tasks:
-
-| Category | Commands |
-|----------|----------|
-| **Workflow** | `/start-scene`, `/end-session`, `/check-continuity`, `/check-format` |
-| **Writing** | `/new-scene`, `/new-character`, `/format-dialogue`, `/add-transition`, `/add-note` |
-| **Analysis** | `/analyze-structure`, `/analyze-character`, `/page-count`, `/scene-list` |
-| **Export** | `/export-pdf`, `/export-fdx`, `/export-html`, `/export-all` |
-
-### 3. Skills (Model-Invoked Expertise)
-13 specialized skills automatically loaded when relevant:
-
-**Core Syntax:**
-- `fountain-syntax` - Complete syntax reference
-- `scene-headings` - INT/EXT formatting
-- `character-dialogue` - Names, extensions, dual dialogue
-- `action-description` - Visual writing
-- `transitions` - Scene transitions
-- `title-page` - Metadata formatting
-
-**Craft:**
-- `story-structure` - Three-act, Save the Cat, Hero's Journey
-- `character-arcs` - Character development
-- `dialogue-craft` - Subtext, voice differentiation
-- `scene-analysis` - Pacing and beats
-
-**Production:**
-- `format-export` - PDF, FDX, HTML conversion
-- `page-estimation` - Runtime calculation
-- `continuity-tracking` - Character, timeline, prop tracking
-
-## The 11-Agent Team
-
-| Agent | Role |
-|-------|------|
-| **Story Analyst** | Requirements → scene breakdown, beats |
-| **Story Architect** | Structure, act breaks, narrative arc |
-| **Dialogue Writer** | Character voices, subtext |
-| **Scene Writer** | Action lines, visual storytelling |
-| **Continuity Editor** | Timeline, character, prop consistency |
-| **Script Supervisor** | Quality gate, format validation |
-| **Standards Reviewer** | Industry compliance |
-| **Scene Annotator** | Notes, synopses, sections |
-| **Research Specialist** | Location, historical, technical accuracy |
-| **Production Coordinator** | Export, format conversion |
-| **Session Manager** | Workflow coordination, git integration |
-
-## Fountain Format Reference
-
-```fountain
-Title:
-    **Seoul Identity**
-Credit: Written by
-Author: Scott Graham
-
-INT. COFFEE SHOP - DAY
-
-SARAH CHEN (30s, sharp) enters.
-
-SARAH
-I need your help.
-
-JOHN (O.S.)
-With what?
-
-Sarah turns toward the voice.
-
-SARAH (CONT'D)
-(hesitant)
-Everything.
-
-                                                      CUT TO:
+```
+Acting as the Story Architect, evaluate the three-act structure...
+Acting as the Dialogue Writer, refine the voice for [character]...
 ```
 
-## Git Workflow
+## Integration with Claude Code
 
-### Branch Strategy
-```
-main
-├── draft/v1
-│   ├── scene/opening
-│   └── revision/dialogue
-└── draft/v2
-```
+This harness works with Claude Code's plugin system. The root `CLAUDE.md` file loads this harness configuration.
 
-### Commit Format
-```
-type(scope): description
+## See Also
 
-Types: scene, dialogue, action, structure, revision, notes, format
-```
-
-## Getting Started
-
-1. Review `SETUP.md` for configuration
-2. Run `/start-scene` to begin writing
-3. Use `/check-format` to validate
-4. Use `/end-session` to complete work
-
-For troubleshooting, see `TROUBLESHOOTING.md`.
+- [WTFB Claude Marketplace](https://github.com/bybren-llc/wtfb-claude-marketplace) for additional plugins
+- `.gemini/` for Gemini CLI harness
+- `AGENTS.md` for team reference

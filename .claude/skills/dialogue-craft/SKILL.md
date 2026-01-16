@@ -1,3 +1,16 @@
+---
+name: dialogue-craft
+wtfbId: wtfb:dialogue-craft
+description: |
+  This skill provides dialogue writing techniques for screenplays.
+  Covers subtext, character voice differentiation, exposition handling,
+  and the four purposes of dialogue (reveal character, advance plot,
+  create conflict, entertain).
+
+  Use when: polishing dialogue, developing subtext, differentiating
+  character voices, or handling exposition in screenplay dialogue.
+---
+
 # Dialogue Craft Skill
 
 ## Invocation Triggers

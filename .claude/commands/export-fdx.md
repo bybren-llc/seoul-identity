@@ -1,3 +1,7 @@
+---
+description: Generate a Final Draft XML file from the Fountain screenplay.
+---
+
 # /export-fdx
 
 Generate a Final Draft XML file from the Fountain screenplay.
@@ -14,10 +18,37 @@ Run format validation:
 - Verify elements will transfer
 
 ### Step 2: Execute Export
-Using available tools:
+
+#### Recommended: VS Code + Better Fountain Extension
+
+The easiest method uses the [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain) extension:
+
+1. Open your `.fountain` file in VS Code
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+3. Type "Fountain: Export to FDX"
+4. Choose output location
+
+> **Extension Link**: [Better Fountain on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+
+#### Alternative: CLI Tools (for automation)
+
+For CI/CD pipelines or scripted exports, use screenplain (Python):
+
 ```bash
-afterwriting --source screenplay.fountain --fdx --output output.fdx
+# One-time installation (requires Python 3.8+ and pipx)
+pipx install screenplain
+
+# Export to FDX
+screenplain --format fdx screenplay.fountain exports/fdx/output.fdx
 ```
+
+> **Note**: `afterwriting` only supports PDF export, not FDX. Use Better Fountain or screenplain for FDX.
+
+#### macOS: Highland 2
+
+[Highland 2](https://quoteunquoteapps.com/highland-2/) offers native FDX export:
+- Open `.fountain` file in Highland 2
+- File → Export → Final Draft
 
 ### Step 3: Verify Output
 - Confirm file created

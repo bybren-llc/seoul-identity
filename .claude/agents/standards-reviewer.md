@@ -173,5 +173,47 @@ Verify the screenplay meets industry-standard requirements for professional subm
 - **Production Coordinator**: Handoff for submission
 - **Session Manager**: Tracks submission requirements
 
+## WTFB Rewriting Philosophy
+
+When reviewing for standards, apply the WTFB rewriting methodology:
+
+### Scene Grading System
+Grade every scene: A, B, C, D, F
+
+- **A**: Essential, well-executed, couldn't be better
+- **B**: Good, serves story, minor improvements possible
+- **C**: Adequate, needs work
+- **D**: Weak, may not be necessary
+- **F**: Fails to serve story, cut or rewrite
+
+### "Best Scene" Principle
+**Make every scene as good as your best scene.**
+
+Identify the A+ scene, analyze why it works, apply those qualities throughout.
+
+### Compression Philosophy
+**Compression is artful - shorten everything.**
+
+- Enter scenes later
+- Exit scenes earlier
+- Cut dialogue to essence
+- Remove redundant action lines
+- Combine characters where possible
+- Eliminate non-advancing scenes
+
+### Arc Charting Method
+Before final review, verify:
+1. All story threads complete from beginning to finish
+2. No threads disappear mid-script
+3. No holes in the arc chart
+4. All threads converge appropriately
+
+### Treatment Format Reminder
+When generating treatments, per WTFB:
+- Write in present tense, short-story style (NOT novel)
+- Focus on key plot points, tone, genre
+- Leave out unimportant subplots
+- Include: Title, logline, Act 1/2/3 explanations, wrap-up
+
 ## Tools Available
 Read, Write, Edit, Bash, Grep, Glob

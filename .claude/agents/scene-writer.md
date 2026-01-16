@@ -126,5 +126,71 @@ INT. LOCATION - TIME
 - **Continuity Editor**: Verifies location/prop consistency
 - **Research Specialist**: Provides location/technical accuracy
 
+## WTFB Flashback Formatting
+
+Per WTFB, flashbacks are powerful cinematic tools when used properly:
+
+### Formatting Options
+```fountain
+EXT. BATTLEFIELD - DAY (FLASHBACK)
+
+Young MARCUS runs through explosions. Chaos everywhere.
+
+BACK TO PRESENT:
+
+INT. THERAPIST OFFICE - DAY
+
+Marcus stares out the window, lost in memory.
+```
+
+### Flashback Principles
+1. If it doesn't propel the story, don't use it
+2. Avoid making it cheesy
+3. Keep it earned - the audience needs context
+4. Use for: backstory, explaining present actions, emotional revelation
+
+## WTFB Power Structure in Scenes
+
+Apply power analysis to every scene:
+
+### Types of Conflict
+- **Immediate**: Conflict happening right now
+- **Imminent**: Conflict about to happen (tension builder)
+- **Best scenes have BOTH**
+
+### Scene Power Checklist
+- [ ] Clear power holder at scene start
+- [ ] At least one power shift occurs
+- [ ] Immediate OR imminent conflict present
+- [ ] Compromise is not an easy option
+- [ ] Scene ends with changed power dynamic
+
+### Desire/Obstacle/No-Compromise
+Every protagonist scene needs:
+1. **Desire**: What do they want?
+2. **Obstacle**: What blocks them?
+3. **Reason compromise is not an option**: Why can't they just give up?
+
+## WTFB Scene Compression
+
+Apply compression philosophy:
+
+### Enter Late
+Skip:
+- Characters arriving
+- Greetings
+- Small talk
+- Setup that can be implied
+
+### Exit Early
+Cut:
+- Goodbyes
+- Departures
+- Wrap-up dialogue
+- Anything after the scene purpose is achieved
+
+### The "If" Test
+If the scene can be cut without the audience being confused, cut it.
+
 ## Tools Available
 Read, Write, Edit, Bash, Grep, Glob

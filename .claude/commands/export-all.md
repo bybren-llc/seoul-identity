@@ -1,3 +1,7 @@
+---
+description: Generate all output formats (PDF, FDX, HTML) at once.
+---
+
 # /export-all
 
 Generate all output formats (PDF, FDX, HTML) at once.
@@ -23,11 +27,34 @@ Run comprehensive validation:
 ```
 
 ### Step 3: Execute All Exports
+
+#### Recommended: VS Code + Better Fountain Extension
+
+The easiest method uses the [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain) extension:
+
+1. Open your `.fountain` file in VS Code
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+3. Run each export command:
+   - "Fountain: Export to PDF"
+   - "Fountain: Export to FDX"
+   - "Fountain: Export to HTML"
+
+> **Extension Link**: [Better Fountain on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+
+#### Alternative: CLI Tools (for automation)
+
+For CI/CD pipelines or scripted exports:
+
 ```bash
+# PDF and HTML via afterwriting
 afterwriting --source screenplay.fountain --pdf --output file.pdf
-afterwriting --source screenplay.fountain --fdx --output file.fdx
 afterwriting --source screenplay.fountain --html --output file.html
+
+# FDX via screenplain (afterwriting does NOT support FDX)
+screenplain --format fdx screenplay.fountain file.fdx
 ```
+
+> **Note**: Requires `npm install -g afterwriting` and `pipx install screenplain`
 
 ### Step 4: Verify All Outputs
 - Check all files created

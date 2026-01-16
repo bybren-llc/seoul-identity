@@ -1,3 +1,15 @@
+---
+name: format-export
+wtfbId: wtfb:format-export
+description: |
+  This skill provides screenplay export procedures for PDF, FDX, and HTML.
+  Covers Better Fountain VS Code extension, afterwriting CLI, and Highland
+  for converting Fountain files to industry-standard delivery formats.
+
+  Use when: exporting screenplay to PDF, converting to Final Draft (FDX),
+  generating HTML preview, or preparing scripts for delivery.
+---
+
 # Format Export Skill
 
 ## Invocation Triggers
@@ -7,13 +19,31 @@ Apply this skill when:
 - Generating HTML preview
 - Preparing scripts for delivery
 
+## Recommended: Better Fountain Extension
+
+The simplest export method uses the [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain) VS Code extension:
+
+| Format | Command Palette Action |
+|--------|------------------------|
+| PDF | `Fountain: Export to PDF` |
+| FDX | `Fountain: Export to FDX` |
+| HTML | `Fountain: Export to HTML` |
+
+**Steps:**
+1. Open `.fountain` file in VS Code
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+3. Type the export command
+4. Choose output location
+
+> **Extension**: [Better Fountain on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+
 ## Export Formats Overview
 
 | Format | Extension | Purpose | Tools |
 |--------|-----------|---------|-------|
-| PDF | .pdf | Industry standard delivery | afterwriting, Highland, Wrap |
-| FDX | .fdx | Final Draft import | Highland, afterwriting |
-| HTML | .html | Web preview/sharing | afterwriting, custom |
+| PDF | .pdf | Industry standard delivery | Better Fountain, afterwriting, Highland |
+| FDX | .fdx | Final Draft import | Better Fountain, screenplain, Highland |
+| HTML | .html | Web preview/sharing | Better Fountain, afterwriting |
 | Plain Text | .txt | Accessibility, archival | direct copy |
 
 ## PDF Export
@@ -24,7 +54,10 @@ Apply this skill when:
 - **Page Size:** US Letter (8.5" x 11")
 - **Page Numbers:** Top right, starting page 2
 
-### Using afterwriting CLI
+### Better Fountain (Recommended)
+In VS Code: `Ctrl+Shift+P` → "Fountain: Export to PDF"
+
+### CLI: afterwriting (for automation)
 ```bash
 # Install
 npm install -g afterwriting
@@ -72,19 +105,30 @@ afterwriting --source screenplay.fountain --pdf --output script.pdf
 - Collaboration with Final Draft users
 - Industry compatibility
 
-### Using afterwriting
+### Better Fountain (Recommended)
+In VS Code: `Ctrl+Shift+P` → "Fountain: Export to FDX"
+
+### CLI: screenplain (for automation)
 ```bash
-afterwriting --source screenplay.fountain --fdx
+# One-time installation (requires Python 3.8+ and pipx)
+pipx install screenplain
+
+# Export to FDX
+screenplain --format fdx screenplay.fountain output.fdx
 ```
+
+> **Note**: `afterwriting` does NOT support FDX export. Use Better Fountain, screenplain, or Highland.
+
+### Highland Export (macOS)
+[Highland 2](https://quoteunquoteapps.com/highland-2/) offers native FDX export:
+1. Open `.fountain` file in Highland 2
+2. File → Export → Final Draft
 
 ### Compatibility Notes
 - Basic Fountain elements export cleanly
 - Notes, sections, synopses may not transfer
 - Review formatting after import to Final Draft
 - Scene numbers transfer if present
-
-### Highland Export
-1. File → Export → Final Draft
 
 ## HTML Export
 
@@ -93,7 +137,10 @@ afterwriting --source screenplay.fountain --fdx
 - Easy sharing via URL
 - Print from browser
 
-### Using afterwriting
+### Better Fountain (Recommended)
+In VS Code: `Ctrl+Shift+P` → "Fountain: Export to HTML"
+
+### CLI: afterwriting (for automation)
 ```bash
 afterwriting --source screenplay.fountain --html
 ```
@@ -204,6 +251,8 @@ Seoul_Identity_v2.0_20260115.fdx
 
 ## Export Scripts
 
+> **Note**: For manual exports, use the Better Fountain extension. The scripts below are for CI/CD automation.
+
 ### Bash Export All Formats
 ```bash
 #!/bin/bash
@@ -212,8 +261,13 @@ NAME="Seoul_Identity"
 DATE=$(date +%Y%m%d)
 VERSION="1.0"
 
+# PDF export (afterwriting)
 afterwriting --source $SCRIPT --pdf --output "${NAME}_v${VERSION}_${DATE}.pdf"
-afterwriting --source $SCRIPT --fdx --output "${NAME}_v${VERSION}_${DATE}.fdx"
+
+# FDX export (screenplain - requires pipx install screenplain)
+screenplain --format fdx $SCRIPT "${NAME}_v${VERSION}_${DATE}.fdx"
+
+# HTML export (afterwriting)
 afterwriting --source $SCRIPT --html --output "${NAME}_v${VERSION}_${DATE}.html"
 
 echo "Export complete:"
