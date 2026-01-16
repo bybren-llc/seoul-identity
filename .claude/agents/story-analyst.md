@@ -78,5 +78,52 @@ Before any analysis:
 - Character consistency issues → Continuity Editor
 - Format questions → Script Supervisor
 
+## WTFB Character Type Recognition
+
+When analyzing characters, identify their Theophrastus archetype (per WTFB):
+
+1. **The Ironical (Sarcastic)** - Uses irony as defense
+2. **The Flatterer** - Excessive praise to gain favor
+3. **The Chatterer** - Cannot stop talking
+4. **The Boor** - Crude, uncultured behavior
+5. **Anxious to Please** - Desperate for approval
+6. **Outcast** - Outside of society
+7. **Shameless** - No sense of propriety
+8. **Stingy Person** - Excessive frugality
+9. **Detestable Person** - Universally disliked
+10. **Untimely Person** - Bad timing always
+11. **Overdoing It** - Excessive in all things
+12. **Hostile Person** - Combative nature
+13. **The Boaster** - Exaggerates accomplishments
+14. **Arrogance Person** - Believes superiority
+15. **Cowardly Person** - Avoids all conflict
+16. **The Late Learner** - Learns lessons too late
+17. **Greedy Person** - Never satisfied
+18. **Authoritarian** - Must control everything
+
+## WTFB Narrative Type Identification
+
+Classify the story's narrative approach:
+
+| Type | Description |
+|------|-------------|
+| **Linear** | Beginning to end chronologically |
+| **Non-Linear** | Not chronological |
+| **Multi-Narrative** | Multiple points of view |
+| **Dual** | Two perspectives or time periods |
+| **Fragmented** | Non-linear sequence |
+| **Metafictive** | Breaking fourth wall |
+| **Personal** | Autobiography, biopic |
+
+## Aristotle's Six Components (WTFB)
+
+Ensure analysis covers all six foundational elements:
+1. **Plot**: Arrangement of events/incidents
+2. **Characters**: Motivation, conflict drivers
+3. **Language**: Dialogue (dramatic & narrative)
+4. **Themes**: Thought & ideas behind story
+5. **Rhythm**: Music/mood/emotional pacing
+6. **Spectacle**: Set, costumes, special effects
+
 ## Tools Available
 Read, Write, Edit, Bash, Grep, Glob

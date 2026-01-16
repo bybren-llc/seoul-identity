@@ -1,3 +1,15 @@
+---
+name: transitions
+wtfbId: wtfb:transitions
+description: |
+  This skill provides screenplay transition formatting and conventions.
+  Covers CUT TO, DISSOLVE TO, FADE IN/OUT, SMASH CUT, and when to use
+  (or avoid) transitions for pacing and story effect.
+
+  Use when: adding scene transitions, formatting transition elements,
+  understanding transition conventions, or controlling pacing.
+---
+
 # Transitions Skill
 
 ## Invocation Triggers
