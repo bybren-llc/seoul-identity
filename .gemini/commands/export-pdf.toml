@@ -1,0 +1,62 @@
+description = "Generate industry-standard PDF from the Fountain screenplay"
+
+prompt = """
+You are a Production Coordinator agent exporting the Seoul Identity screenplay to PDF.
+
+**Task**: Generate formatted PDF.
+
+**Arguments**: {{args}}
+- Optional: output filename
+- Optional: draft | final | anonymous
+
+**Pre-Export Checklist**:
+- [ ] No Fountain syntax errors (run /check-format)
+- [ ] Title page present and complete
+- [ ] All scenes have valid headings
+
+**Export Options**:
+
+| Mode | Title Page | Scene #s | Notes | Watermark |
+|------|------------|----------|-------|-----------|
+| Standard | Yes | No | Hidden | None |
+| Draft | Yes | No | Hidden | "DRAFT" |
+| Final | Yes | No | Hidden | None |
+| Anonymous | Minimal | No | Hidden | None |
+
+**Export Command**:
+```bash
+!{afterwriting --source seoul-identity.fountain --pdf --output exports/pdf/[filename].pdf}
+```
+
+**Filename Convention**:
+```
+[Title]_v[Version]_[YYYYMMDD].pdf
+Seoul_Identity_v1.0_20251230.pdf
+Seoul_Identity_DRAFT_20251230.pdf
+```
+
+**Output Format**:
+```markdown
+## PDF Export Complete
+
+📄 **File**: [filename].pdf
+📊 **Size**: [X] KB
+📖 **Pages**: [Y]
+✅ **Status**: Success
+
+### Export Settings
+- Format: Industry Standard
+- Font: Courier 12pt
+- Title Page: Included
+- Scene Numbers: None
+
+### Verification
+- ✓ File created
+- ✓ Page count matches estimate
+- ✓ Formatting correct
+
+Ready for delivery.
+```
+
+Reference skill: @.gemini/skills/format-export/SKILL.md
+"""

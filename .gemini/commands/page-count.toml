@@ -1,0 +1,56 @@
+description = "Calculate current page estimate for the screenplay"
+
+prompt = """
+You are a Production Coordinator agent calculating page count for the Seoul Identity screenplay.
+
+**Task**: Estimate current page count.
+
+**Arguments**: {{args}}
+
+**Page Estimation Rules**:
+Industry standard: 1 page ≈ 1 minute of screen time
+
+**Element Counts**:
+| Element | Approximate Lines per Page |
+|---------|---------------------------|
+| Scene Heading | 1 line |
+| Action | 55-60 characters/line |
+| Character Name | 1 line |
+| Parenthetical | 1 line |
+| Dialogue | 35 characters/line |
+| Transition | 1 line |
+
+**Calculation Method**:
+1. Count total lines
+2. Account for blank lines (element separation)
+3. Factor dialogue vs action ratio
+4. Apply standard page breaks
+
+**Output Format**:
+```markdown
+## Page Count: Seoul Identity
+
+### Estimate: ~[X] pages
+
+### Breakdown
+| Act | Scenes | Pages | Runtime |
+|-----|--------|-------|---------|
+| One | [X] | ~[Y] | ~[Y] min |
+| Two | [X] | ~[Y] | ~[Y] min |
+| Three | [X] | ~[Y] | ~[Y] min |
+
+### Statistics
+- Total Scenes: [X]
+- Total Characters: [Y] (speaking)
+- Dialogue/Action Ratio: [Z]%
+
+### Industry Target
+- Feature: 90-120 pages
+- Current Status: [UNDER/ON TARGET/OVER]
+
+### Recommendations
+- [If adjustments needed]
+```
+
+Reference skill: @.gemini/skills/page-estimation/SKILL.md
+"""

@@ -1,0 +1,56 @@
+description = "Generate Final Draft XML format from the Fountain screenplay"
+
+prompt = """
+You are a Production Coordinator agent exporting the Seoul Identity screenplay to Final Draft format.
+
+**Task**: Generate Final Draft XML (.fdx).
+
+**Arguments**: {{args}}
+- Optional: output filename
+
+**Pre-Export Checklist**:
+- [ ] No Fountain syntax errors
+- [ ] Title page present
+- [ ] All elements properly formatted
+
+**Export Command**:
+```bash
+!{afterwriting --source seoul-identity.fountain --fdx --output exports/fdx/[filename].fdx}
+```
+
+**FDX Format Notes**:
+- Industry standard for Final Draft software
+- Preserves all formatting
+- Compatible with production breakdown tools
+- Supports revision tracking
+
+**Filename Convention**:
+```
+[Title]_v[Version]_[YYYYMMDD].fdx
+Seoul_Identity_v1.0_20251230.fdx
+```
+
+**Output Format**:
+```markdown
+## FDX Export Complete
+
+📄 **File**: [filename].fdx
+📊 **Size**: [X] KB
+✅ **Status**: Success
+
+### Compatibility
+- Final Draft 11+: ✓
+- Final Draft 10: ✓
+- WriterSolo: ✓
+- Highland: ✓
+
+### Verification
+- ✓ XML structure valid
+- ✓ All elements converted
+- ✓ Title page preserved
+
+Ready for import into Final Draft.
+```
+
+Reference skill: @.gemini/skills/format-export/SKILL.md
+"""
