@@ -60,8 +60,8 @@ In a final confrontation, Jake must choose: disappear into a new life, or walk i
 
 | Specification | Details |
 |---------------|---------|
-| **Runtime** | ~100 minutes |
-| **Pages** | ~105 |
+| **Runtime** | ~110 minutes |
+| **Pages** | ~110 (93 scenes) |
 | **Aspect Ratio** | 2.39:1 (Scope) |
 | **Color** | Color |
 | **Language** | English, Korean (한국어) |
@@ -175,11 +175,16 @@ SUNG-HO
 
 **Mr. Han**: "The right question is not 'who am I working for.' The right question is 'who do I want to be?'"
 
-**Sung-ho**: "A weapon doesn't choose who fires it. You were aimed. That's not the same as choosing to pull the trigger."
+**Jake**: "You gave me a conscience so I'd seem human. But conscience is conscience. It doesn't come with an off switch."
 
-**Jake**: "I spent two years in Seoul pretending to be someone I wasn't. A teacher. A spy. A patriot. Turns out none of it was real. Except maybe the teacher. That felt true."
+**Mr. Kim**: "So you're choosing a cell over a life."
+**Jake**: "I'm choosing to find out."
 
-**Agent Park**: "You think you've been working for the CIA. You've been running errands for Pyongyang."
+**Jake** (to Mr. Kim): "You made a man who wanted to do the right thing. And now he is. That's your legacy."
+
+**Sung-ho**: "Go. Be who you want to be."
+
+**Jake** (V.O.): "For the first time in two years - maybe my whole life - I know exactly who I am."
 
 ---
 
