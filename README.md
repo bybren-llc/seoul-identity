@@ -52,7 +52,7 @@ In a final confrontation, Jake must choose: disappear into a new life, or walk i
 |------|------|
 | **Written by** | Scott Graham |
 | **Based on** | Original screenplay |
-| **Production** | Words To Film By |
+| **Production** | J. Scott Graham |
 
 ---
 
@@ -258,7 +258,7 @@ See `docs/WORKFLOW.md` for complete workflow documentation.
 
 ## Copyright
 
-(c) 2025 Words To Film By. All rights reserved.
+(c) 2025 J. Scott Graham. All rights reserved.
 
 ---
 
