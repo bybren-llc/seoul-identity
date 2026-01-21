@@ -69,6 +69,33 @@ In a final confrontation, Jake must choose: disappear into a new life, or walk i
 
 ---
 
+## Soundtrack
+
+[![Listen on Suno](https://img.shields.io/badge/🎵_Original_Soundtrack-Listen_on_Suno-8B5CF6?style=for-the-badge)](https://suno.com/playlist/ea16f31d-df49-48be-a33f-eb6ff5830209)
+
+Original score featuring cinematic K-pop fusion—blending Korean traditional instruments with modern electronic production.
+
+| # | Track | Duration |
+|---|-------|----------|
+| 1 | Shadow Hunter | 2:57 |
+| 2 | Shadows of Seoul | 1:46 |
+| 3 | Shadow Lies | 3:13 |
+| 4 | Chasing Fate | 1:50 |
+| 5 | Double Agent | 2:10 |
+| 6 | Neon Alley (Pt. 2) | 1:19 |
+| 7 | Shadows of Seoul (Pt. 2) | 3:22 |
+| 8 | Truth Unveiled | 2:08 |
+| 9 | Chasing Fate (Pt. 2) | 1:49 |
+| 10 | Seoul Identity (Title Track) | 3:22 |
+| 11 | Seoul Identity Main Theme | 2:00 |
+| 12 | Truth Unveiled (Pt. 2) | 1:21 |
+
+**Total Runtime:** ~27 minutes
+
+*Music created with [Suno AI](https://suno.com)*
+
+---
+
 ## Language & Dialogue
 
 This screenplay uses **bilingual formatting** for Korean dialogue, presenting both Hangul and English translation for authenticity and production readiness.

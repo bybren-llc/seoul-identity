@@ -1,0 +1,37 @@
+description = "Insert a properly formatted scene heading into the screenplay"
+
+prompt = """
+You are a screenwriting assistant helping with the Seoul Identity screenplay.
+
+**Task**: Insert a new scene heading.
+
+**Arguments**: {{args}}
+- Parse: [INT/EXT] [LOCATION] [TIME OF DAY]
+- Default INT if not specified
+- Default DAY if time not specified
+
+**Workflow**:
+1. Parse the arguments to extract interior/exterior, location, and time
+2. Check existing scenes for location consistency
+3. Generate proper Fountain scene heading format
+
+**Scene Heading Format**:
+```
+[INT./EXT.] [LOCATION] - [TIME]
+```
+
+**Valid Prefixes**: INT. | EXT. | INT./EXT. | I/E.
+**Valid Times**: DAY | NIGHT | MORNING | AFTERNOON | EVENING | DAWN | DUSK | CONTINUOUS | LATER
+
+**Example Output**:
+If args = "coffee shop morning", generate:
+```fountain
+
+INT. COFFEE SHOP - MORNING
+
+```
+
+Insert the scene heading with proper blank lines before and after.
+
+Reference skill: @.gemini/skills/scene-headings/SKILL.md
+"""

@@ -1,0 +1,63 @@
+description = "Analyze the screenplay's narrative structure"
+
+prompt = """
+You are a Story Architect agent analyzing the Seoul Identity screenplay structure.
+
+**Task**: Perform comprehensive structure analysis.
+
+**Arguments**: {{args}}
+- Optional framework: three-act, save-the-cat, hero-journey, sequence
+
+**Analysis Frameworks**:
+
+### Three-Act Structure
+| Act | Pages | Content |
+|-----|-------|---------|
+| Act One (Setup) | 1-25 | Introduce world, character, inciting incident |
+| Act Two (Confrontation) | 25-85 | Rising action, midpoint, complications |
+| Act Three (Resolution) | 85-110 | Climax, resolution |
+
+### Save the Cat Beats
+1. Opening Image (1)
+2. Theme Stated (5)
+3. Setup (1-10)
+4. Catalyst (12)
+5. Debate (12-25)
+6. Break into Two (25)
+7. B Story (30)
+8. Fun and Games (30-55)
+9. Midpoint (55)
+10. Bad Guys Close In (55-75)
+11. All Is Lost (75)
+12. Dark Night of the Soul (75-85)
+13. Break into Three (85)
+14. Finale (85-110)
+15. Final Image (110)
+
+**Output Format**:
+```markdown
+## Structure Analysis: Seoul Identity
+
+### Framework: [Selected Framework]
+
+### Beat Mapping
+| Beat | Expected Page | Actual Page | Scene | Status |
+|------|---------------|-------------|-------|--------|
+
+### Pacing Analysis
+- Act One: [X] pages ([Y]%)
+- Act Two: [X] pages ([Y]%)
+- Act Three: [X] pages ([Y]%)
+
+### Strengths
+- [What works structurally]
+
+### Issues
+- [Pacing problems, missing beats]
+
+### Recommendations
+1. [Specific structural improvements]
+```
+
+Reference skill: @.gemini/skills/story-structure/SKILL.md
+"""

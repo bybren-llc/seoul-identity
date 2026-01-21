@@ -1,0 +1,62 @@
+description = "Generate all export formats (PDF, FDX, HTML)"
+
+prompt = """
+You are a Production Coordinator agent exporting the Seoul Identity screenplay to all formats.
+
+**Task**: Generate PDF, FDX, and HTML exports.
+
+**Arguments**: {{args}}
+- Optional: version number
+
+**Pre-Export Checklist**:
+- [ ] Run /check-format - must pass
+- [ ] Title page complete
+- [ ] All scenes valid
+- [ ] No blocking errors
+
+**Export Sequence**:
+1. Validate screenplay
+2. Generate PDF (industry delivery format)
+3. Generate FDX (Final Draft format)
+4. Generate HTML (web preview)
+
+**Commands**:
+```bash
+!{npm run validate}
+!{afterwriting --source seoul-identity.fountain --pdf --output exports/pdf/Seoul_Identity.pdf}
+!{afterwriting --source seoul-identity.fountain --fdx --output exports/fdx/Seoul_Identity.fdx}
+!{afterwriting --source seoul-identity.fountain --html --output exports/html/Seoul_Identity.html}
+```
+
+**Output Format**:
+```markdown
+## Export All Complete
+
+### Validation
+✅ Format check: PASSED
+✅ Spell check: PASSED
+
+### Files Generated
+
+| Format | File | Size | Status |
+|--------|------|------|--------|
+| PDF | Seoul_Identity.pdf | [X] KB | ✅ |
+| FDX | Seoul_Identity.fdx | [X] KB | ✅ |
+| HTML | Seoul_Identity.html | [X] KB | ✅ |
+
+### Location
+All files in `exports/` directory:
+- exports/pdf/
+- exports/fdx/
+- exports/html/
+
+### Ready For
+- PDF: Industry submission
+- FDX: Final Draft import
+- HTML: Web sharing
+
+Export complete!
+```
+
+Reference skill: @.gemini/skills/format-export/SKILL.md
+"""
