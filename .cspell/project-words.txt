@@ -106,3 +106,5 @@ safehouse
 walkie
 Songbird
 shortwave
+weaponization
+victimhood
